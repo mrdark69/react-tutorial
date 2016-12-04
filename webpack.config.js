@@ -1,9 +1,13 @@
 const webpack = require('webpack');
 const path = require('path');
 const autoprefixer = require('autoprefixer');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   devtool: 'eval',
-  entry: './index.js',
+  entry: [
+        './ui/theme/elements.scss',
+        './ui/index.js'
+  ],
   output: {
     publicPath: '/static/',
     path: path.join(__dirname, 'static'),
@@ -16,7 +20,13 @@ module.exports = {
           postcss: function(){return [autoprefixer];},
           context: __dirname,
          }
-       })
+       }),
+       new HtmlWebpackPlugin({
+        hash: true,
+          title: 'Darkman APP',
+          filename: '../index.html'
+       
+    })
   ],
   module: {
     loaders: [
@@ -69,6 +79,9 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
+  devServer: {
+  historyApiFallback: true
+}
   
 };
