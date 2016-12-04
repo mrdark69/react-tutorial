@@ -34,4 +34,18 @@ $border-style: 1px solid $gray1-color;
       vertical-align: bottom;
     }
   }
+
+  .button {
+    display: inline-block;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    background-color: $gray2-color;
+    color: $dark-gray1-color;
+    border: none;
+  }
 }

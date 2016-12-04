@@ -1,9 +1,9 @@
 import React from 'react'
 import { Router, Route, IndexRoute, browserHistory } from 'react-router'
+import { Pages,ShowPage } from './containers'
 import {
   App,
-  Home,
-  Pages
+  Home
 } from './components'
 
 export default () => {
@@ -11,7 +11,10 @@ export default () => {
     <Router history={browserHistory}>
       <Route path='/' component={App}>
         <IndexRoute component={Home} />
-        <route path='pages' component={Pages} />
+        <route path='pages'>
+        <IndexRoute component={Pages} /> 
+        <route path=':id' component={ShowPage} />
+        </route>
       </Route>
     </Router>
   )
